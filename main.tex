@@ -13,21 +13,23 @@
 \usepackage{bussproofs}
 \usepackage{tikz}
 
+\def\name{Kjetil Midtgarden Golid}
+
+\newtheorem{definition}{Definition}
 \newtheorem{theorem}{Theorem}
 \newtheorem{corollary}[theorem]{Corollary}
 \newtheorem{lemma}[theorem]{Lemma}
 \newtheorem{example}[theorem]{Example}
 
+\newcommand{\todo}[1]{\footnote{#1}}
+
 \usetikzlibrary{matrix}
 
-\title{Masteroppgave}
-\author{Kjetil Midtgarden Golid}
-\date{15.07.2015}
+\title{Early Disposition, Master Thesis}
+\author{\name}
+\date{\today}
 \begin{document}
 	\maketitle
-	\section{Graph Properties}
-	Some graphs are bigger than other.
-	\subsection{Definition}
-	\input{chapters/definition}
-	Anywaays..
+	\input{chapters/intro}
+	\input{chapters/definitions}
 \end{document}
