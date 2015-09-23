@@ -19,19 +19,21 @@ We start by writing out some basic definitions from graph theory.
   Given two nodes $x,y$ we have that \bm{$P(x,y)$} holds iff there exists a path between $x$ and $y$.
   We will use \bm{$P_o$} and \bm{$P_e$} to denote paths of odd and even lengths, respectively.
 \end{definition}
-  Given this definition, it is not obvious how to treat empty paths, but we will say that for any node $x$ in our graph, it is trivially true that $P_e(x,x)$ since $0$ is even.
 \begin{definition}
-  A path is \textbf{fully trimmed} if no nodes in the path branches off elsewhere.
-  This means that for every two consecutive nodes $p,q$ in the path, we need that $E(p,\{q\})$.
+  A path $P(x_0,x_n)$ is \textbf{fully trimmed} (denoted \bm{$P^f(x_0,x_n)$}) if no nodes in the path branches off elsewhere.
+  This means that for every pair of consecutive nodes $x_i,x_{i+1}$ in the path, we need that $E(x_i,\{ x_{i+1} \})$.
 \end{definition}
-
-An \textbf{evenly trimmed} path requires this property to hold for only for every other node, starting at the first node.
-We can formalize this by first giving the nodes in the path indices.
-Let $x_0$ denote the first node in the path, then $x_1$ is the second node, and so on.
-This lets us define the requirement for evenly trimmed path as follows: Given any two consecutive nodes $p_n,p_{n+1}$ in the path, if $n$ is even, we need that $E(p,\{q\})$.
-An \textbf{oddly trimmed} path can be defined in an equivalent way.
-
-We will denote fully, evenly and oddly trimmed paths by \bm{$P^f, P^e, P^o$}, respectively.
-
-\subsection{Immediate Observations}
-\label{sub:Immediate Observations}
+\begin{definition}
+  A path $P(x_0,x_n)$ is \textbf{evenly trimmed} (denoted \bm{$P^e(x_0,x_n)$}) if every evenly indexed node is non-branching.
+  Said differently, for every \textit{even} $i < n$ we need $E(x_i,\{x_{i+1}\})$ to hold.
+\end{definition}
+\begin{definition}
+  A path $P(x_0,x_n)$ is \textbf{oddly trimmed} (denoted \bm{$P^o(x_0,x_n)$}) if for every \textit{odd} $i < n$, $E(x_i,\{x_{i+1}\})$ holds.
+\end{definition}
+We will usually denote paths with both length and trim in combination, i.e. $\peo(x,y)$.
+This is solely to simplify the proofs and is nothing more than an abbreviation for $P^e(x,y) \wedge P_o(x,y)$, meaning an evenly trimmed odd path from $x$ to $y$.
+\begin{definition}
+  There is a \textbf{vel} between two nodes $x$ and $y$ (denoted \bm{$V(x,y)$}) if and only if there exists a node $c$ such that $P^o_e(x,c)$ and $P^o_o(y,c)$ and the sum of the two path lengths is odd.
+\end{definition}
+\subsection{Immediate observations}
+\label{sub:Immediate observations}
