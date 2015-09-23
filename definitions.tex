@@ -4,7 +4,8 @@
 \label{sub:Graphs and Paths}
 We start by writing out some basic definitions from graph theory.
 \begin{definition}
-  A \textbf{graph} is a tuple $G = (G_v, G_e)$ where $G_v$ is a set representing the nodes in the graph, while $G_e$ is a set representing the edges.  $G_e$ is usually represented as a subset of $G_v \times G_v$ where $(u,v) \in G_e$ iff there is an edge from node $u$ to node $v$ in the graph.
+  A \textbf{graph} is a tuple $G = (G_v, G_e)$ where $G_v$ is a set representing the nodes in the graph, while $G_e$ is a set representing the edges.
+  $G_e$ is usually represented as a subset of $G_v \times G_v$ where $(u,v) \in G_e$ iff there is an edge from node $u$ to node $v$ in the graph.
 \end{definition}
 \begin{definition}
   A \textbf{path} is an ordered collection of nodes $(x_0, x_1, x_2, \dots, x_n)$ from the graph such that for any two consequtive nodes $x_i,x_{i+1}$, we have that $(x_i, x_{i+1}) \in G_e$.
@@ -37,3 +38,20 @@ This is solely to simplify the proofs and is nothing more than an abbreviation f
 \end{definition}
 \subsection{Immediate observations}
 \label{sub:Immediate observations}
+\begin{lemma}
+  $P^o(x,y) \wedge P^e(x,y) \Leftrightarrow P^f(x,y)$
+\end{lemma}
+A path both evenly and oddly trimmed is obviously fully trimmed.
+The opposite direction should be just as obvious.
+\begin{lemma}
+  $P_e(x,x)$ for every $x \in G_v$
+\end{lemma}
+The definition of paths requires every two consequtive nodes from the ordered collection to be connected by an edge.
+This is trivially realized by the empty path containing only a single node.
+The path is even simply because 0 is even.
+\begin{lemma}
+  $E(x,\{ y \}) \Rightarrow P^f_o(x,y)$
+\end{lemma}
+An edge is another trivial example of a path.
+The path is fully trimmed since $x$ does not branch off.
+In the more general case of $E(x,Y)$, we have that $P^o_o(x,y)$ holds for every $y \in Y$.
