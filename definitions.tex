@@ -1,0 +1,34 @@
+\section{Definitions and Observations}
+\label{sec:Definitions and Observations}
+\subsection{Basic Graph Properties}
+\label{sub:Basic Graph Properties}
+\begin{definition}
+  A \textbf{graph} is a tuple $G = (G_v, G_e)$ where $G_v$ is a set representing the nodes in the graph, while $G_e$ is a set representing the edges.  $G_e$ is usually represented as a subset of $G_v \times G_v$ where $(u,v) \in G_e$ iff there is an edge from node $u$ to node $v$ in the graph.
+\end{definition}
+\begin{definition}
+  A \textbf{path} is an ordered collection of nodes $(x_0, x_1, x_2, \dots, x_n)$ from the graph such that for any $0 \leq i < n$ we have that $(x_i, x_{i+1}) \in G_e$.  In this case we say that there is a path from $x_0$ to $x_n$.
+\end{definition}
+\begin{definition}
+  Given a node $x$ and a collection of nodes $Y$, we have that \bm{$E(x,Y)$} holds iff $x$ has outgoing edges targeting exactly the nodes in $Y$.
+\end{definition}
+Note that any two nodes $x,y$ such that $E(x,\{y\})$ holds will create a corresponding $xy \in OR$ in the refutation system.
+\begin{definition}
+  Given two nodes $x,y$ we have that \bm{$P(x,y)$} holds iff there exists a path between $x$ and $y$.
+  We will use \bm{$P_o$} and \bm{$P_e$} to denote paths of odd and even lengths, respectively.
+\end{definition}
+  Given this definition, it is not obvious how to treat empty paths, but we will say that for any node $x$ in our graph, it is trivially true that $P_e(x,x)$ since $0$ is even.
+\begin{definition}
+  A path is \textbf{fully trimmed} if no nodes in the path branches off elsewhere.
+  This means that for every two consecutive nodes $p,q$ in the path, we need that $E(p,\{q\})$.
+\end{definition}
+
+An \textbf{evenly trimmed} path requires this property to hold for only for every other node, starting at the first node.
+We can formalize this by first giving the nodes in the path indices.
+Let $x_0$ denote the first node in the path, then $x_1$ is the second node, and so on.
+This lets us define the requirement for evenly trimmed path as follows: Given any two consecutive nodes $p_n,p_{n+1}$ in the path, if $n$ is even, we need that $E(p,\{q\})$.
+An \textbf{oddly trimmed} path can be defined in an equivalent way.
+
+We will denote fully, evenly and oddly trimmed paths by \bm{$P^f, P^e, P^o$}, respectively.
+
+\subsection{Immediate Observations}
+\label{sub:Immediate Observations}
