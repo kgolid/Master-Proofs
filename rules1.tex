@@ -52,3 +52,33 @@
 \end{prooftree}
 \]
 
+\subsection{Brading Rules (B)}
+\label{sub:Brading Rules}
+\[
+\begin{prooftree}[downwards]
+  \Hypo{P^e_e(b,c)}
+  \Hypo{P^o_e(c,b)}
+  \Infer2[B1]{P^e_o(a,b), P^o_o(a,c)}
+\end{prooftree}
+\quad \quad \quad
+\begin{prooftree}[downwards]
+  \Hypo{P^e_o(b,c)}
+  \Hypo{P^e_o(c,b)}
+  \Infer2[B2]{P^e_o(a,b), P^o_e(a,c)}
+\end{prooftree}
+\]
+
+\[
+\begin{prooftree}[downwards]
+  \Hypo{P^o_o(b,c)}
+  \Hypo{P^o_o(c,b)}
+  \Infer2[B3]{P^e_e(a,b), P^o_o(a,c)}
+\end{prooftree}
+\quad \quad \quad
+\begin{prooftree}[downwards]
+  \Hypo{P^o_e(b,c)}
+  \Hypo{P^e_e(c,b)}
+  \Infer2[B4]{P^e_e(a,b), P^o_e(a,c)}
+\end{prooftree}
+\]
+TODO: All of these will need justification.
