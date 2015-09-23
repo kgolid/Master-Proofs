@@ -1,0 +1,28 @@
+\subsection{Path Shortening Rules (S)}
+\label{sub:Path Shortening Rule}
+\[
+\begin{prooftree}
+  \Hypo{P^o_o(a,c),E(a,B)}
+  \Infer2[S1]{ \bigvee_{b \in B}P^e_e(b,c)}
+\end{prooftree}
+\quad \quad \quad
+\begin{prooftree}
+  \Hypo{P^e_o(a,c)}
+  \Infer1[S2]{ P^o_e(b,c),E(a,{b})}
+\end{prooftree}
+\]
+
+\[
+\begin{prooftree}[downwards]
+  \Hypo{E(c,B)}
+  \Hypo{\bigvee_{b \in B}P^e_o(b,c)}
+  \Infer2[S3]{P^o_e(a,c),E(a,B)}
+\end{prooftree}
+\quad \quad \quad
+\begin{prooftree}[downwards]
+  \Hypo{a=z}
+  \Hypo{P^o_o(b,c),E(a,{b})}
+  \Infer2[S4]{ P^e_e(a,c)}
+\end{prooftree}
+\]
+
