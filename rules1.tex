@@ -26,3 +26,29 @@
 \end{prooftree}
 \]
 
+\subsection{Path Composition Rules (C)}
+\label{sub:Path Composition Rules (C)}
+\[
+\begin{prooftree}
+  \Hypo{P^o_o(a,b),P^e(b,c)}
+  \Infer1[C1]{P^o(a,c)}
+\end{prooftree}
+\quad \quad \quad
+\begin{prooftree}
+  \Hypo{P^e_o(a,b),P^o(b,c)}
+  \Infer1[C2]{P^e(a,c)}
+\end{prooftree}
+\]
+
+\[
+\begin{prooftree}
+  \Hypo{P^o_e(a,b),P^o(b,c)}
+  \Infer1[C3]{P^o(a,c)}
+\end{prooftree}
+\quad \quad \quad
+\begin{prooftree}
+  \Hypo{P^e_e(a,b),P^e(b,c)}
+  \Infer1[C4]{P^e(a,c)}
+\end{prooftree}
+\]
+
