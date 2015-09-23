@@ -1,0 +1,22 @@
+\section{Proofs}
+\label{sec:Proof}
+$V(A,x),V(B,y),E(x,\{y\})$ Gives the following four cases:
+\begin{enumerate}[(i)]
+  \item $\poo(A,c), \poe(x,c), \poo(B,d), \poe(y,d)$
+  \item $\poo(A,c), \poe(x,c), \poe(B,d), \poo(y,d)$
+  \item $\poe(A,c), \poo(x,c), \poo(B,d), \poe(y,d)$
+  \item $\poe(A,c), \poo(x,c), \poe(B,d), \poo(y,d)$
+\end{enumerate}
+\subsection{2OR Proof (i)}
+\label{sub:2OR Proof (i)}
+
+\begin{prooftree*}[downwards]
+  \Hypo{V_o(A,B)}
+  \Infer1[def]{\poe(B,d),\poo(A,d)}
+  \Infer1[C1]{\poo(A,c),\pee(c,d)}
+  \Hypo{V_o(A,B)}
+  \Infer1[def]{\poe(B,c),\poo(A,c)}
+  \Infer1[C3]{\poe(d,c),\poe(B,d)}
+  \Infer2[B1]{\peo(y,c),\poo(y,d)}
+  \Infer1[S1]{\poo(x,c),E(x,\{y\})}
+\end{prooftree*}
