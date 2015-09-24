@@ -9,14 +9,19 @@ $V(A,x),V(B,y),E(x,\{y\})$ Gives the following four cases:
 \end{enumerate}
 \subsection{2OR Proof (i)}
 \label{sub:2OR Proof (i)}
-
 \begin{prooftree*}[downwards]
   \Hypo{V_o(A,B)}
-  \Infer1[def]{\poe(B,d),\poo(A,d)}
-  \Infer1[C1]{\poo(A,c),\pee(c,d)}
+  \Infer1[def]{\ax{\poo(B,d)},\poe(A,d)}
+  \Infer1[C1]{\ax{\poo(A,c)},\peo(c,d)}
+  \Infer1[C2]{\ax{\poe(y,d)},P^f_o(c,y)}
+  \Infer1[L3]{E(c,\{y\})}
+  \Infer1[(=)]{\ax{E(x,\{y\})}, x=c}
   \Hypo{V_o(A,B)}
-  \Infer1[def]{\poe(B,c),\poo(A,c)}
-  \Infer1[C3]{\poe(d,c),\poe(B,d)}
-  \Infer2[B1]{\peo(y,c),\poo(y,d)}
-  \Infer1[S1]{\poo(x,c),E(x,\{y\})}
+  \Infer1{\ax{\poo(A,c)},\poe(B,c)}
+  \Infer1{\ax{\poo(B,d)}\peo(d,c)}
+  \Hypo{V_o(A,B)}
+  \Infer1[def]{\ax{\poo(B,d)},\poe(A,d)}
+  \Infer1[C1]{\ax{\poo(A,c)},\peo(c,d)}
+  \Infer2[B2]{\peo(y,c),\ax{\poe(y,d)}}
+  \Infer2[S3]{\ax{\poe(x,c),E(x,\{y\})}}
 \end{prooftree*}
