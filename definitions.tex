@@ -4,9 +4,10 @@
 \label{sub:Graphs and Paths}
 We start by writing out some basic definitions from graph theory.
 \begin{definition}
-  A \textbf{graph} is a tuple $G = (G_v, G_e)$ where $G_v$ is a set representing the nodes in the graph, while $G_e$ is a set representing the edges.
-  $G_e$ is usually represented as a subset of $G_v \times G_v$ where $(u,v) \in G_e$ iff there is an edge from node $u$ to node $v$ in the graph.
+  A \textbf{graph} $\bm{G} = (G, N)$ is a tuple where the first element $G$ is a set representing the nodes in the graph, while the second element $N$ is a set representing the edges (neighbours).
+  $N$ is usually represented as a subset of $G \times G$ where $(u,v) \in N$ iff there is an edge from node $u$ to node $v$ in the graph.
 \end{definition}
+Another way to think of $N$ is as a function $N: G \rightarrow \mathcal{P}(G)$ where $N(x)$ returns the set of all out-neighbours of $x$.
 \begin{definition}
   A \textbf{path} is an ordered collection of nodes\todo{bad definition?} $(x_0, x_1, x_2, \dots, x_n)$ from the graph such that for any two consequtive nodes $x_i,x_{i+1}$, we have that $(x_i, x_{i+1}) \in G_e$.
   In this case we say that there is a path from $x_0$ to $x_n$.
