@@ -9,7 +9,7 @@ We start by writing out some basic definitions from graph theory.
 \end{definition}
 Another way to think of $N$ is as a function $N: G \rightarrow \mathcal{P}(G)$ where $N(x)$ returns the set of all out-neighbours of $x$.
 \begin{definition}
-  A \textbf{path} is an ordered collection of nodes\todo{bad definition?} $(x_0, x_1, x_2, \dots, x_n)$ from the graph such that for any two consequtive nodes $x_i,x_{i+1}$, we have that $(x_i, x_{i+1}) \in G_e$.
+  A \textbf{path} is a sequence of nodes $(x_0, x_1, x_2, \dots, x_n)$ from the graph in which all nodes (except possibly the first and last) are distinct, such that for any two consequtive nodes $x_i,x_{i+1}$, we have that $(x_i, x_{i+1}) \in N$.
   In this case we say that there is a path from $x_0$ to $x_n$.
 \end{definition}
 \subsection{Proof-specific relations}
