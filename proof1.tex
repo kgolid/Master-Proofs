@@ -15,21 +15,64 @@ $V(a,x),V(b,y),E(x,\{y\})$ Gives the following four cases:
   \item $\poe(a,c), \poo(x,c), \poo(b,d), \poe(y,d), E(x,\{y\})$
   \item $\poe(a,c), \poo(x,c), \poe(b,d), \poo(y,d), E(x,\{y\})$
 \end{enumerate}
+\clearpage
 \subsection{2OR Proof (i)}
 \label{sub:2OR Proof (i)}
 \begin{prooftree*}[downwards]
-  \Hypo{V_o(A,B)}
-  \Infer1[def]{\ax{\poo(B,d)},\poe(A,d)}
-  \Infer1[C1]{\ax{\poo(A,c)},\peo(c,d)}
+  \Hypo{V_o(a,b)}
+  \Infer1[def]{\ax{\poo(b,d)},\poe(a,d)}
+  \Infer1[C1]{\ax{\poo(a,c)},\peo(c,d)}
   \Infer1[C2]{\ax{\poe(y,d)},P^f_o(c,y)}
   \Infer1[L3]{E(c,\{y\})}
   \Infer1[(=)]{\ax{E(x,\{y\})}, x=c}
-  \Hypo{V_o(A,B)}
-  \Infer1{\ax{\poo(A,c)},\poe(B,c)}
-  \Infer1{\ax{\poo(B,d)}\peo(d,c)}
-  \Hypo{V_o(A,B)}
-  \Infer1[def]{\ax{\poo(B,d)},\poe(A,d)}
-  \Infer1[C1]{\ax{\poo(A,c)},\peo(c,d)}
+  \Hypo{V_o(a,b)}
+  \Infer1[def]{\ax{\poo(b,d)},\poe(a,d)}
+  \Infer1[C1]{\ax{\poo(a,c)},\peo(c,d)}
+  \Hypo{V_o(a,b)}
+  \Infer1[def]{\ax{\poo(a,c)},\poe(b,c)}
+  \Infer1[C1]{\ax{\poo(b,d)},\peo(d,c)}
   \Infer2[B2]{\peo(y,c),\ax{\poe(y,d)}}
-  \Infer2[S3]{\ax{\poe(x,c),E(x,\{y\})}}
+  \Infer2[S3]{\ax{\poe(x,c)},\ax{E(x,\{y\})}}
+\end{prooftree*}
+\subsection{2OR Proof (ii)}
+\label{sub:2OR Proof (ii)}
+\begin{prooftree*}[downwards]
+  \Hypo{V_o(a,b)}
+  \Infer1[def]{\ax{\poe(b,d)},\poo(a,d)}
+  \Infer1[C1]{\ax{\poo(a,c)},\pee(c,d)}
+  \Infer1[C2]{\ax{\poo(y,d)},P^f_o(c,y)}
+  \Infer1[L3]{E(c,\{y\})}
+  \Infer1[(=)]{\ax{E(x,\{y\})}, x=c}
+  \Hypo{V_o(a,b)}
+  \Infer1[def]{\ax{\poe(b,d)},\poo(a,d)}
+  \Infer1[C1]{\ax{\poo(a,c)},\pee(c,d)}
+  \Hypo{V_o(a,b)}
+  \Infer1[def]{\ax{\poo(a,c)},\poe(b,c)}
+  \Infer1[C3]{\ax{\poe(b,d)}\poe(d,c)}
+  \Infer2[B1]{\peo(y,c),\ax{\poo(y,d)}}
+  \Infer2[S3]{\ax{\poe(x,c)},\ax{E(x,\{y\})}}
+\end{prooftree*}
+\subsection{2OR Proof (iii)}
+\label{sub:2OR Proof (iii)}
+\begin{prooftree*}[downwards]
+  \Hypo{V_o(a,b)}
+  \Infer1[def]{\ax{\poo(b,d)},\poe(a,d)}
+  \Infer1[C3]{\ax{\poe(a,c)},\poe(c,d)}
+  \Hypo{V_o(a,b)}
+  \Infer1[def]{\ax{\poe(a,c)},\poo(b,c)}
+  \Infer1[C1]{\ax{\poo(b,d)},\pee(d,c)}
+  \Infer2[B4]{\pee(y,c),\ax{\poe(y,d)}}
+  \Infer1[S1]{\ax{\poo(x,c)},\ax{E(x,\{ y \})}}
+\end{prooftree*}
+\subsection{2OR Proof (iv)}
+\label{sub:2OR Proof (iv)}
+\begin{prooftree*}[downwards]
+  \Hypo{V_o(a,b)}
+  \Infer1[def]{\ax{\poe(b,d)},\poo(a,d)}
+  \Infer1[C3]{\ax{\poe(a,c)},\poo(c,d)}
+  \Hypo{V_o(a,b)}
+  \Infer1[def]{\ax{\poe(a,c)},\poo(b,c)}
+  \Infer1[C3]{\ax{\poe(b,d)},\poo(d,c)}
+  \Infer2[B3]{\pee(y,c),\ax{\poo(y,d)}}
+  \Infer1[S1]{\ax{\poo(x,c)},\ax{E(x,\{ y \})}}
 \end{prooftree*}
