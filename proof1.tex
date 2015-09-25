@@ -1,6 +1,14 @@
-$V(A,x),V(B,y),E(x,\{y\})$ Gives the following four cases:
 \section{Vel composition}
 \label{sec:Vel composition}
+\begin{theorem}
+  Given a node $x$ and a nonempty set $Y$ such that $E(x,Y)$, then for all nodes $a,b$ such that $V(a,x)$ and either $V(a,y)$ or $V(b,y)$ for all $y \in Y$ we have that either $V(a,a)$ or $V(a,b)$.
+\end{theorem}
+We will start by giving an exhaustive proof of the base case where $Y=\{ y \}$. This will give us a good intuition of how the general proof will look.
+In this case we have a node $x$ such that $E(x,\{ y \})$ and nodes $a$ and $b$ such that $V(a,x)$ and either $V(a,y)$ or $V(b,y)$. We want to show that these conditions implies either $V(a,a)$ or $V(a,b)$.
+\subsection{2OR Proof}
+\label{sub:2OR Proof}
+
+$V(a,x),V(b,y),E(x,\{y\})$ Gives the following four cases:
 \begin{enumerate}[(i)]
   \item $\poo(A,c), \poe(x,c), \poo(B,d), \poe(y,d)$
   \item $\poo(A,c), \poe(x,c), \poe(B,d), \poo(y,d)$
