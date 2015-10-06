@@ -76,3 +76,70 @@ In the more general case of $E(x,Y)$, we have that $P^o_o(x,y)$ holds for every 
 \end{lemma}
 A vel needs two paths of even and odd length, respectively.
 Since the even path can be empty, we get that any odd path is a vel by itself.
+\subsection{Path composition}
+\label{sub:Path composition}
+Given two paths such that the last node in the first path matches the first node in the second path, we have that there is a path from the first node of the first path all the way to the last node of the second path.\todo{Poorly worded.}
+Using our notation, we can write:
+\[
+P(a,b) \wedge P(b,c) \Rightarrow P(a,c)
+\]
+Let's extend this statement in order to describe the change in length.
+We observe that when composing two even -- or two odd -- paths, the resulting path will always be even, but when composing one path of even length with one of odd length, the resulting path will be odd.  Introducing length to the equation thus gives us two cases:
+\begin{align*}
+  P_x(a,b) \wedge P_x(b,c) \Rightarrow P_e(a,c)\\
+  P_x(a,b) \wedge P_{\overline{x}}(b,c) \Rightarrow P_o(a,c)
+\end{align*}
+In order to extend these statements any further -- by introducing trims -- we need to take a look at our different paths:
+\[
+  \item \begin{tikzpicture}
+    [
+    point/.style={thick,circle,draw,inner sep=0pt,minimum size=2mm},
+    trimmed/.style={thick,draw=red},
+    untrimmed/.style={thick,draw=black}
+    ]
+    \node (0) at (0,0) [point,label=left:$\poo\quad$] ] {};
+    \node (1) at (1,0) [point,trimmed] {};
+    \node (2) at (2,0) [point] {};
+    \node (3) at (3,0) [point,trimmed] {};
+    \node (4) at (4,0) [point] {};
+    \node (5) at (5,0) [point] {};
+    \draw [-latex,untrimmed] (0) to (1);
+    \draw [-latex,trimmed] (1) to (2);
+    \draw [-latex,untrimmed] (2) to (3);
+    \draw [-latex,trimmed] (3) to (4);
+    \draw [-latex,untrimmed] (4) to (5);
+
+    \node (0) at (0,1) [point,trimmed,label=left:$\peo\quad$] ] {};
+    \node (1) at (1,1) [point] {};
+    \node (2) at (2,1) [point,trimmed] {};
+    \node (3) at (3,1) [point] {};
+    \node (4) at (4,1) [point,trimmed] {};
+    \node (5) at (5,1) [point] {};
+    \draw [-latex,trimmed] (0) to (1);
+    \draw [-latex,untrimmed] (1) to (2);
+    \draw [-latex,trimmed] (2) to (3);
+    \draw [-latex,untrimmed] (3) to (4);
+    \draw [-latex,trimmed] (4) to (5);
+
+    \node (0) at (0,2) [point,label=left:$\poe\quad$] ] {};
+    \node (1) at (1,2) [point,trimmed] {};
+    \node (2) at (2,2) [point] {};
+    \node (3) at (3,2) [point,trimmed] {};
+    \node (4) at (4,2) [point] {};
+    \draw [-latex,untrimmed] (0) to (1);
+    \draw [-latex,trimmed] (1) to (2);
+    \draw [-latex,untrimmed] (2) to (3);
+    \draw [-latex,trimmed] (3) to (4);
+
+    \node (0) at (0,3) [point,trimmed,label=left:$\pee\quad$] ] {};
+    \node (1) at (1,3) [point] {};
+    \node (2) at (2,3) [point,trimmed] {};
+    \node (3) at (3,3) [point] {};
+    \node (4) at (4,3) [point] {};
+    \draw [-latex,trimmed] (0) to (1);
+    \draw [-latex,untrimmed] (1) to (2);
+    \draw [-latex,trimmed] (2) to (3);
+    \draw [-latex,untrimmed] (3) to (4);
+  \end{tikzpicture}
+\]
+In the above figure, we have examples of the four possible combinations of trim and length of a path.  The trimmed nodes and their respective unique out-edges are depicted in red.
