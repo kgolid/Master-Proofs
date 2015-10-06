@@ -43,6 +43,17 @@ This is solely to simplify the proofs and is nothing more than an abbreviation f
   V(x,y) \Leftrightarrow (\poo(x,c) \wedge \poe(y,c)) \vee (\poe(x,c) \wedge \poo(y,c))
   \]
 \end{definition}
+By introducing a bit more notation, we will be able to write this formal defintion of a vel in a nicer way.
+By abstracting over the actual lengths and trims of paths we can make statements like \[P_x(a,b) \wedge P_x(b,c) \Rightarrow P_e(a,c) \quad\text{where}\quad x \in \{e,o\}\]
+This lets us argue about paths of equal length (even or odd) in one statement instead of explicitly describing both cases.
+The statements above tells us that the concatenation of two paths of equal length (even or odd) results in an even path\todo{Rewrite section. Use P+E examples instead of P+P}.
+
+Similarly, we can argue about paths of different lengths by introducing $\overline{x}$ as a piece of notation such that $\overline{o} = e$ and $\overline{e} = o$.
+We can now make statements like \[P_x(a,b) \wedge P_{\overline{x}}(b,c) \Rightarrow P_o(a,c)\] telling us that concatenating two paths of different lengths (even or odd) results in an odd path.
+We are now able to write our definition of a vel in a nice, shorter way\todo{Does the definition below need an existencial quantifier?}:
+\[
+V(a,b) \Leftrightarrow \exists x(\pox(a,c) \wedge \ponx(b,c))
+\]
 \subsection{Immediate observations}
 \label{sub:Immediate observations}
 \begin{lemma}
