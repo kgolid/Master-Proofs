@@ -99,7 +99,18 @@ Introducing length to the equation thus gives us two cases:
   P_x(a,b) \wedge P_x(b,c) \Rightarrow P_e(a,c)\\
   P_x(a,b) \wedge P_{\overline{x}}(b,c) \Rightarrow P_o(a,c)
 \end{align*}
-In order to extend these statements any further -- by introducing trims -- we need to take a look at our different paths:
+The next step will be to extend these statements even further to also capture the behavior of trimming under composition.
+In order to do this, let's first make some observations:
+
+First, unlike with the length property, we do not have any guarantee that a composite path has a trim at all.
+We might need to set certain restrictions to our two original paths in order to get a properly trimmed (either evenly or oddly) path as a result after composition.  It should at least be obvious that both original paths should be trimmed in some way.
+
+Secondly, no matter what path you compose a trimmed path with, the resulting composite path will always be of the same trim, if trimmed at all.
+This means that given a path $P^e(a,b)$ and a path $P(b,c)$, the composite path from $a$ to $c$ will never be oddly trimmed. Equivalently, a composition of $P^o(a,b)$ and $P(b,c)$ will never result in $P^e(a,c)$.
+
+Now, let's look at some examples.
+The below figure shows instances of the four possible combinations of trims and lengths of a path.
+All nodes $x$ and edges $(x,y)$ such that $E(x,\{ y\})$ are depicted in red\todo{Should I avoid using colors in the paper?} and will from here on be referred to as \textit{non-branching} nodes and \textit{unique} edges, respectively\todo{Overkill?}.
 \[
   \item \begin{tikzpicture}
     [
