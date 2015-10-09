@@ -44,7 +44,8 @@ This is solely to simplify the proofs and is nothing more than an abbreviation f
   \]
 \end{definition}
 By introducing a bit more notation, we will be able to write this formal defintion of a vel in a nicer way.
-By abstracting over the actual lengths and trims of paths we can make statements like \[P_x(a,b) \wedge P_x(b,c) \Rightarrow P_e(a,c) \quad\text{where}\quad x \in \{e,o\}\]
+By abstracting over the actual lengths and trims of paths we can make statements like:
+\[P_x(a,b) \wedge P_x(b,c) \Rightarrow P_e(a,c) \quad\text{where}\quad x \in \{e,o\}\]
 This lets us argue about paths of equal length (even or odd) in one statement instead of explicitly describing both cases.
 The statements above tells us that the concatenation of two paths of equal length (even or odd) results in an even path\todo{Rewrite section. Use P+E examples instead of P+P}.
 
@@ -67,7 +68,8 @@ V(a,b) \Leftrightarrow \exists x(\pox(a,c) \wedge \ponx(b,c))
 \begin{lemma}
   $P_e(x,x)$ for every $x \in G_v$
 \end{lemma}
-This will denote the empty path mentioned earlier.  The path is even simply because 0 is even.
+This will denote the empty path mentioned earlier.
+The path is even simply because 0 is even.
 \begin{lemma}
   $E(x,\{ y \}) \Rightarrow P^f_o(x,y)$
 \end{lemma}
@@ -87,7 +89,8 @@ Using our notation, we can write:
 P(a,b) \wedge P(b,c) \Rightarrow P(a,c)
 \]
 Let's extend this statement in order to describe the change in length.
-We observe that when composing two even -- or two odd -- paths, the resulting path will always be even, but when composing one path of even length with one of odd length, the resulting path will be odd.  Introducing length to the equation thus gives us two cases:
+We observe that when composing two even -- or two odd -- paths, the resulting path will always be even, but when composing one path of even length with one of odd length, the resulting path will be odd.
+Introducing length to the equation thus gives us two cases:
 \begin{align*}
   P_x(a,b) \wedge P_x(b,c) \Rightarrow P_e(a,c)\\
   P_x(a,b) \wedge P_{\overline{x}}(b,c) \Rightarrow P_o(a,c)
