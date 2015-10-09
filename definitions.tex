@@ -57,10 +57,13 @@ V(a,b) \Leftrightarrow \exists x(\pox(a,c) \wedge \ponx(b,c))
 \subsection{Immediate observations}
 \label{sub:Immediate observations}
 \begin{lemma}
-  $P^o(x,y) \wedge P^e(x,y) \Leftrightarrow P^f(x,y)$
+  $P^f(x,y) \Rightarrow P^o(x,y) \wedge P^e(x,y)$
 \end{lemma}
-A path both evenly and oddly trimmed is obviously fully trimmed.
-The opposite direction should be just as obvious.
+ This implication should be easy to accept; a fully trimmed path has branching restrictions on all its nodes, both the odd and the even ones.
+ It is thus both oddly and evenly trimmed.
+
+ The opposite implication is actually also true, allthough not as obvious, since it would seem that $P^o(x,y)$ could refer to a path partly disjoint from $P^e(x,y)$ and there would thus be no single path both oddly and evenly trimmed.
+ We will later show that this can't actually be the case.
 \begin{lemma}
   $P_e(x,x)$ for every $x \in G_v$
 \end{lemma}
