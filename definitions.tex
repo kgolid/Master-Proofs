@@ -163,4 +163,70 @@ All nodes $x$ and edges $(x,y)$ such that $E(x,\{ y\})$ are depicted in red\todo
     \draw [-latex,untrimmed] (3) to (4);
   \end{tikzpicture}
 \]
-In the above figure, we have examples of the four possible combinations of trim and length of a path.  The trimmed nodes and their respective unique out-edges are depicted in red.
+Now comes the question:
+What kind of paths can we put at the end of each of these different paths such that the resulting composite path would be properly trimmed (either evenly or oddly)?
+
+Let us start by looking at evenly trimmed even paths ($\pee$).
+The first edge in a path of this type is obviously always unique, but since the path is of even length, we also know that its \textit{last} edge does not have this uniqueness property. In order to preserve the even trim under composition, the first edge of the consecutive path therefore has to be unique.
+This means that given $\pee(a,b)$ and $P(b,c)$, the composite path is evenly trimmed only when $P(b,c)$ is evenly trimmed.
+
+The following figures examplifies this:
+\[
+  \begin{tikzpicture}
+    [
+    point/.style={thick,circle,draw,inner sep=0pt,minimum size=2mm},
+    trimmed/.style={thick,draw=red},
+    untrimmed/.style={thick,draw=black}
+    ]
+    \node (0) at (0,0) [point,trimmed,label=below:$a$] {};
+    \node (1) at (1,0) [point] {};
+    \node (2) at (2,0) [point,trimmed,label=above:$\pee(a{,}b)$] {};
+    \node (3) at (3,0) [point] {};
+    \node (4) at (4,0) [point,label=below:$b$] {};
+    \node (5) at (6,0) [point,trimmed,label=below:$b$] {};
+    \node (6) at (7,0) [point,label=above:$P^e(b{,}c)$] {};
+    \node (7) at (8,0) [point,trimmed] {};
+    \node (8) at (9,0) [point,label=below:$c$] {};
+    \draw [-latex,trimmed] (0) to (1);
+    \draw [-latex,untrimmed] (1) to (2);
+    \draw [-latex,trimmed] (2) to (3);
+    \draw [-latex,untrimmed] (3) to (4);
+    \draw [-latex,trimmed] (5) to (6);
+    \draw [-latex,untrimmed] (6) to (7);
+    \draw [-latex,trimmed] (7) to (8);
+  \end{tikzpicture}
+\]
+
+Composing the two paths above will give an evenly trimmed path from $a$ to $b$.
+\[
+  \begin{tikzpicture}
+    [
+    point/.style={thick,circle,draw,inner sep=0pt,minimum size=2mm},
+    trimmed/.style={thick,draw=red},
+    untrimmed/.style={thick,draw=black}
+    ]
+    \node (0) at (0,0) [point,trimmed,label=below:$a$] {};
+    \node (1) at (1,0) [point] {};
+    \node (2) at (2,0) [point,trimmed,label=above:$\pee(a{,}b)$] {};
+    \node (3) at (3,0) [point] {};
+    \node (4) at (4,0) [point,label=below:$b$] {};
+    \node (5) at (6,0) [point,label=below:$b$] {};
+    \node (6) at (7,0) [point,trimmed,label=above:$P^o(b{,}c)$] {};
+    \node (7) at (8,0) [point] {};
+    \node (8) at (9,0) [point,label=below:$c$] {};
+    \draw [-latex,trimmed] (0) to (1);
+    \draw [-latex,untrimmed] (1) to (2);
+    \draw [-latex,trimmed] (2) to (3);
+    \draw [-latex,untrimmed] (3) to (4);
+    \draw [-latex,untrimmed] (5) to (6);
+    \draw [-latex,trimmed] (6) to (7);
+    \draw [-latex,untrimmed] (7) to (8);
+  \end{tikzpicture}
+\]
+
+Composing the two paths above will \textit{not} give an evenly trimmed path from $a$ to $b$, since it will contain two consecutive edges without the uniqueness property.\\
+
+The first thing to notice with these paths is that the last edges of $\poe$ and $\peo$ are both unique, while the last edges of $\pee$ and $\poo$ does not.
+It should be clear that this property holds for all instances of these four path types\todo{Should this be further justified?}, not only the examples given above.  It should therefore suffice to show the properties using our example paths only.
+
+Notice how the last edge of these paths is never unique (red).  This means that in order to preserve the even trim, the first edge of the consecutive path needs to be a unique one, i.e. the path has to be evenly trimmed.
