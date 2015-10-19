@@ -1,18 +1,19 @@
 \clearpage
 \section{Rules}
 \label{sec:Rules}
-
-\subsection{Path Shortening Rules (S)}
-\label{sub:Path Shortening Rule}
+\subsection{Specific Rules}
+\label{sub:Specific Rules}
+\subsubsection{Path Shortening Rules (S)}
+\label{subs:Path Shortening Rule}
 \[
 \begin{prooftree}
   \Hypo{P^o_o(a,c),E(a,B)}
-  \Infer2[S1]{ \bigvee_{b \in B}P^e_e(b,c)}
+  \Infer1[S1]{ \bigvee_{b \in B}P^e_e(b,c)}
 \end{prooftree}
 \quad \quad \quad
 \begin{prooftree}
   \Hypo{P^e_o(a,c)}
-  \Infer1[S2]{ P^o_e(b,c),E(a,{b})}
+  \Infer1[S2]{ P^o_e(b,c),E(a,\{b\})}
 \end{prooftree}
 \]
 
@@ -25,13 +26,13 @@
 \quad \quad \quad
 \begin{prooftree}[downwards]
   \Hypo{a=c}
-  \Hypo{P^o_o(b,c),E(a,{b})}
+  \Hypo{P^o_o(b,c),E(a,\{b\})}
   \Infer2[S4]{ P^e_e(a,c)}
 \end{prooftree}
 \]
 
-\subsection{Path Composition Rules (C)}
-\label{sub:Path Composition Rules (C)}
+\subsubsection{Path Composition Rules (C)}
+\label{subs:Path Composition Rules (C)}
 \[
 \begin{prooftree}
   \Hypo{P^o_o(a,b),P^e(b,c)}
@@ -56,8 +57,8 @@
 \end{prooftree}
 \]
 
-\subsection{Brading Rules (B)}
-\label{sub:Brading Rules}
+\subsubsection{Brading Rules (B)}
+\label{subs:Brading Rules}
 \[
 \begin{prooftree}[downwards]
   \Hypo{P^e_e(b,c)}
