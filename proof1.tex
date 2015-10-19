@@ -74,8 +74,8 @@ Since each vel in a statements expands into the choice between two pairs of path
 To avoid this explosion in later proofs, we will be using the general definition of a vel.
 This removes the case explosion all together and leaves us with a constant number of cases regardless of the original number of vels.
 \clearpage
-\subsection{2OR Proof (i)}
-\label{sub:2OR Proof (i)}
+\subsubsection{Proof, base case i}
+\label{subs:Proof, base case i}
 \begin{prooftree*}[downwards]
   \Hypo{V_o(a,b)}
   \Infer1[def]{\ax{\poo(b,d)},\poe(a,d)}
@@ -92,8 +92,8 @@ This removes the case explosion all together and leaves us with a constant numbe
   \Infer2[B2]{\peo(y,c),\ax{\poe(y,d)}}
   \Infer2[S3]{\ax{\poe(x,c)},\ax{E(x,\{y\})}}
 \end{prooftree*}
-\subsection{2OR Proof (ii)}
-\label{sub:2OR Proof (ii)}
+\subsubsection{Proof, base case ii}
+\label{subs:Proof, base case ii}
 \begin{prooftree*}[downwards]
   \Hypo{V_o(a,b)}
   \Infer1[def]{\ax{\poe(b,d)},\poo(a,d)}
@@ -110,8 +110,8 @@ This removes the case explosion all together and leaves us with a constant numbe
   \Infer2[B1]{\peo(y,c),\ax{\poo(y,d)}}
   \Infer2[S3]{\ax{\poe(x,c)},\ax{E(x,\{y\})}}
 \end{prooftree*}
-\subsection{2OR Proof (iii)}
-\label{sub:2OR Proof (iii)}
+\subsubsection{Proof, base case iii}
+\label{subs:Proof, base case iii}
 \begin{prooftree*}[downwards]
   \Hypo{V_o(a,b)}
   \Infer1[def]{\ax{\poo(b,d)},\poe(a,d)}
@@ -122,8 +122,8 @@ This removes the case explosion all together and leaves us with a constant numbe
   \Infer2[B4]{\pee(y,c),\ax{\poe(y,d)}}
   \Infer1[S1]{\ax{\poo(x,c)},\ax{E(x,\{ y \})}}
 \end{prooftree*}
-\subsection{2OR Proof (iv)}
-\label{sub:2OR Proof (iv)}
+\subsubsection{Proof, base case iv}
+\label{subs:Proof, base case iv}
 \begin{prooftree*}[downwards]
   \Hypo{V_o(a,b)}
   \Infer1[def]{\ax{\poe(b,d)},\poo(a,d)}
