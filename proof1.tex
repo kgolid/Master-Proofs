@@ -15,6 +15,26 @@ $V(a,x),V(b,y),E(x,\{y\})$ Gives the following four cases:
   \item $\poe(a,c), \poo(x,c), \poo(b,d), \poe(y,d), E(x,\{y\})$
   \item $\poe(a,c), \poo(x,c), \poe(b,d), \poo(y,d), E(x,\{y\})$
 \end{enumerate}
+The figure bellow illustrates how these paths are arranged:
+\[
+\begin{tikzpicture}
+  [point/.style={circle,draw,inner sep=0pt,minimum size=2mm}]
+  \node (a) at (0,1) [point,label=left:$a$] {};
+  \node (b) at (2,1) [point,label=right:$b$] {};
+
+  \node (x) at (1,1) [point,label=right:$x$] {};
+  \node (y) at (1,0) [point,label=left:$y$] {};
+
+  \node (c) at (0,0) [point,label=left:$c$] {};
+  \node (d) at (2,0) [point,label=right:$d$] {};
+
+  \draw [-latex] (x) to (y);
+  \draw [-latex,dashed,label=left:$o$] (a) to (c);
+  \draw [-latex,dashed,label=left:$e$] (x) to (c);
+  \draw [-latex,dashed,label=right:$o$] (b) to (d);
+  \draw [-latex,dashed,label=above:$e$] (y) to (d);
+\end{tikzpicture}
+\]
 \clearpage
 \subsection{2OR Proof (i)}
 \label{sub:2OR Proof (i)}
