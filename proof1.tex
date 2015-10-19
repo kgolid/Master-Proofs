@@ -10,7 +10,39 @@ This will give us a good intuition of how the general proof will look like.
 In the base case we have a node $x$ such that $E(x,\{ y \})$ and nodes $a$ and $b$ such that $V(a,x)$ and either $V(a,y)$ or $V(b,y)$.
 We will show that these conditions implies either $V(a,a)$ or $V(a,b)$.
 
-$V(a,x),V(b,y),E(x,\{y\})$ Gives the following four cases:
+The figure below illustrates our two possible situations, where a solid arrow represents an edge while dashed lines represents vels:
+\[
+\begin{tikzpicture}
+  [point/.style={circle,draw,inner sep=0pt,minimum size=2mm}]
+  \node (a) at (0,1) [point,label=left:$a$] {};
+  \node (b) at (2,1) [point,label=right:$b$] {};
+
+  \node (x) at (1,1) [point,label=right:$x$] {};
+  \node (y) at (1,0) [point,label=left:$y$] {};
+
+  \draw [-latex] (x) to (y);
+  \draw [dashed] (a) to (x);
+  \draw [dashed] (b) to (y);
+\end{tikzpicture}
+\quad\quad\quad
+\begin{tikzpicture}
+  [point/.style={circle,draw,inner sep=0pt,minimum size=2mm}]
+  \node (a) at (0,1) [point,label=left:$a$] {};
+
+  \node (x) at (1,1) [point,label=right:$x$] {};
+  \node (y) at (1,0) [point,label=right:$y$] {};
+
+  \draw [-latex] (x) to (y);
+  \draw [dashed] (a) to (x);
+  \draw [dashed] (a) to (y);
+\end{tikzpicture}
+\]
+At this point, we have two cases to cover:
+The one where there is a vel between $a$ and $y$, and the case with a vel between $b$ and $y$.
+The following proof will cover the second case, but it turns out that the first case will have a perfectly equivalent proof.
+We will come back to this later, and we will actively use this fact in the general proof.
+
+Now that we have established our assumption, $V(a,x),V(b,y),E(x,\{y\})$, we will use our earlier definition of a vel to expand the assumption into four cases:
 \begin{enumerate}[(i)]
   \item $\poo(a,c), \poe(x,c), \poo(b,d), \poe(y,d), E(x,\{y\})$
   \item $\poo(a,c), \poe(x,c), \poe(b,d), \poo(y,d), E(x,\{y\})$
