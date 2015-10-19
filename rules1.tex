@@ -87,3 +87,39 @@
 \end{prooftree}
 \]
 TODO: All of these will need justification.
+\subsection{General Rules}
+\label{sub:General Rules}
+We can use variables to bring down the number of rules.
+There are several ways of doing this, but this way will show to be the appropriate for our intentions.
+\subsubsection{General Path Composition (GC)}
+\label{subs:Path Composition}
+\[
+\begin{prooftree}
+  \Hypo{\pox(a,b),P^{\overline{x}}(b,c)}
+  \Infer1[GC1]{P^o(a,c)}
+\end{prooftree}
+\quad \quad \quad
+\begin{prooftree}
+  \Hypo{\pex(a,b),P^x(b,c)}
+  \Infer1[GC2]{P^e(a,c)}
+\end{prooftree}
+\]
+
+Notice that GC1 covers C1 and C3 while GC2 covers C2 and C4.
+\subsubsection{General Brading (GB)}
+\label{subs:General Brading (GB)}
+\[
+\begin{prooftree}[downwards]
+  \Hypo{\p ox(b,c)}
+  \Hypo{\p xx(c,b)}
+  \Infer2[GB1]{\p ee(a,b),\p ox(a,c)}
+\end{prooftree}
+\quad \quad \quad
+\begin{prooftree}[downwards]
+  \Hypo{\penx(b,c)}
+  \Hypo{\p x{\overline{x}}(c,b)}
+  \Infer2[GB2]{\peo(a,b), \pox(a,c)}
+\end{prooftree}
+\]
+
+GB1 covers B3 and B4 while GB2 covers B1 and B2.
