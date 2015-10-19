@@ -69,6 +69,10 @@ The figure bellow illustrates how these paths are arranged:
   \draw [-latex,dashed,label=above:$e$] (y) to (d);
 \end{tikzpicture}
 \]
+Since each vel in a statements expands into the choice between two pairs of paths when we apply our vel definition, we get that any statement containing $n$ vels expands into $2^n$ cases.
+
+To avoid this explosion in later proofs, we will be using the general definition of a vel.
+This removes the case explosion all together and leaves us with a constant number of cases regardless of the original number of vels.
 \clearpage
 \subsection{2OR Proof (i)}
 \label{sub:2OR Proof (i)}
