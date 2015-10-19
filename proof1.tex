@@ -134,3 +134,66 @@ This removes the case explosion all together and leaves us with a constant numbe
   \Infer2[B3]{\pee(y,c),\ax{\poo(y,d)}}
   \Infer1[S1]{\ax{\poo(x,c)},\ax{E(x,\{ y \})}}
 \end{prooftree*}
+\subsubsection{Proving the generalized cases}
+\label{subs:Proving the generalized cases}
+
+As mentioned earlier, we can use our alternative definition of vels to avoid having to deal with an exponential number of cases.
+Using this alternative definition we are able to cut the number down to one:
+\begin{align*}
+  \p o {x_1}(a,c), \p o {\overline{x_1}}(x,c), \p o {x_2}(b,d), \p o {\overline{x_2}}(y,d), E(x,\{y\})
+\end{align*}
+The problem now is that our rules -- the S-rules specifically -- don't operate on this level of abstraction.  Since we only use our S-rules in the first step of our proofs, where we deal with the vel between $a$ and $x$, we will keep the case distinction when we expand that vel.  This means that we finally are left with two cases:
+\begin{enumerate}[(i)]
+  \item $\poo(a,c), \poe(x,c), \pox(b,d), \ponx(y,d), E(x,\{y\})$
+  \item $\poe(a,c), \poo(x,c), \pox(b,d), \ponx(y,d), E(x,\{y\})$
+\end{enumerate}
+\subsubsection{Proof abstract base case i}
+\label{subs:Proof abstract base case i}
+\begin{prooftree*}[downwards]
+  \Hypo{V_o(a,b)}
+  \Infer1[def]{\ax{\pox(b,d)},\ponx(a,d)}
+  \Infer1[GC1]{\ax{\poo(a,c)},\pex(c,d)}
+  \Infer1[GC2]{\ax{\ponx(y,d)},P^f_o(c,y)}
+  \Infer1[L3]{E(c,\{y\})}
+  \Infer1[(=)]{\ax{E(x,\{y\})}, x=c}
+  \Hypo{V_o(a,b)}
+  \Infer1[def]{\ax{\pox(b,d)},\ponx(a,d)}
+  \Infer1[GC1]{\ax{\poo(a,c)},\pex(c,d)}
+  \Hypo{V_o(a,b)}
+  \Infer1[def]{\ax{\poo(a,c)},\poe(b,c)}
+  \Infer1[GC1]{\ax{\pox(b,d)}\p xx(d,c)}
+  \Infer2[GB3]{\peo(y,c),\ax{\ponx(y,d)}}
+  \Infer2[S3]{\ax{\poe(x,c)},\ax{E(x,\{y\})}}
+\end{prooftree*}
+\subsubsection{Proof, abstract base case ii}
+\label{subs:Proof, abstract base case ii}
+\begin{prooftree*}[downwards]
+  \Hypo{V_o(a,b)}
+  \Infer1[def]{\ax{\ponx(b,d)},\pox(a,d)}
+  \Infer1[GC1]{\ax{\poe(a,c)},\pox(c,d)}
+  \Hypo{V_o(a,b)}
+  \Infer1[def]{\ax{\poe(a,c)},\poo(b,c)}
+  \Infer1[GC1]{\ax{\ponx(b,d)},\p xx(d,c)}
+  \Infer2[GB1]{\pee(y,c),\ax{\pox(y,d)}}
+  \Infer1[S1]{\ax{\poo(x,c)},\ax{E(x,\{ y \})}}
+\end{prooftree*}
+\subsubsection{Conclusion, base case}
+\label{subs:Conclusion, base case}
+As mentioned earlier, the preceding proof is only for the case where we have $V(b,y)$.
+The theorem is also supposed to hold when we have $V(a,y)$.
+In that case we have this assumption: $V(a,x),V(a,y),E(x,{y})$.
+The crucial thing to notice here, is that the proof for this latter case can be obtained simply by switching all instances of $b$ with $a$ in the proof.
+This will not violate any rules, and the proof will only change by resulting in $V(a,a)$ instead of $V(a,b)$.
+
+We can thus conclude the following:
+\[
+\begin{prooftree}
+  \Hypo{V(a,x),V(b,y),E(x,\{y\})}
+  \Infer1{V(a,b)}
+\end{prooftree}
+\quad\quad
+\begin{prooftree}
+  \Hypo{V(a,x),V(a,y),E(x,\{y\})}
+  \Infer1{V(a,a)}
+\end{prooftree}
+\]
