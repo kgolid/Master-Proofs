@@ -1,9 +1,33 @@
 \section{Main Theorem}
 \label{sec:Main Theorem}
 \begin{theorem}
-  Any binary NAND $\overline{ab}$ proved in the refutation system using only binary NANDs corresponds to one of the following vels in the graph model: $V(a,a)$, $V(a,b)$ or $V(b,b)$.
+  Any binary NAND $\overline{ab}$ proved in the refutation system using only binary NANDs corresponds to one of the following vels in the graph model:
+  $V(a,a)$, $V(a,b)$ or $V(b,b)$.
 \end{theorem}
-We will prove this fact by induction on the (length of the) proof.
-\pagebreak
 \subsection{Proof Outline}
 \label{sub:Proof Outline}
+We will prove this fact by induction on the (length of the) proof.
+\subsubsection{Base case}
+\label{subs:Base case}
+The shortest proofs of binary nands are the axioms themselves.
+The axiomatic NANDs in the refutation system corresponds to simple edges in the graph, which are vels by the base definition.
+\subsubsection{Inductive step}
+\label{subs:Inductive step}
+The refutation system consists of a single rule.  We want to show that any application of this rule, that complies with our restrictions, will preserve the property stated in the theorem.
+
+Since we are restricting ourselves to the proofs consisting purely of NANDs that are binary, we need only look at the applications where this holds.
+In our case this means looking only at the applications where the NANDs in both the premise and the conclusion are binary.
+
+In order for such an application to have a binary result, we need to have an instance of the following situation (with $J$, $K$ and $L$ being disjoint, and $J$ and $K$ nonempty):
+\begin{prooftree*}
+  \Hypo{ \{ \Gamma \vdash \ol{ax_i} \; |\; i \in J \} \quad \{ \Gamma \vdash \ol{bx_i} \; |\; i \in K \} \quad \{ \Gamma \vdash \ol{x_i}\; |\; i \in L \} \quad \Gamma \vdash \{x_i  \; | \; i \in J \cup K \cup L \} }
+  \Infer1{\ol{ab}}
+\end{prooftree*}
+If and only if\todo{Probably in need of some more justification.} your premise is on the above form, the result will be binary.
+
+Since we assume that our NAND in the conclusion is derived using only binary NANDs, we can immediately assume the same thing for all the NANDs in the premise.
+Our induction hypothesis thus tells us that for all the NANDs in the premise, since they are all binary and derived from binary NANDS only, they correspond to vels in the graph.
+
+Now, in order to continue, recall first that for an OR $\{ x_1x_2 \dots x_n \}$ in our system, we have that some $x_i$ 
+
+\pagebreak
