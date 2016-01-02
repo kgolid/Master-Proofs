@@ -1,0 +1,67 @@
+\section{Binary NANDs}
+\label{sec:Binary NANDs}
+\begin{definition}
+  A NAND-clause is \textbf{binary} if it consists of only one or two atoms\todo{atoms?}.
+\end{definition}
+\begin{definition}
+  A NAND-clause is \textbf{binary-derivable} if it is provable in our refutation system using only other binary clauses.
+\end{definition}
+\begin{definition}
+  A NAND-clause is \textbf{purely binary} if it is both binary and binary-derivable.
+\end{definition}
+The main goal in this section will be to answer the following question:
+Given a purely binary NAND-clause $\ol{ab}$, how are the nodes $a$ and $b$ structurally related in the corresponding graph?
+In order to answer this question, let us first get some intuition behind this peculiar subgroup of clauses.  Here are some immediate observations:
+\begin{lemma}
+  All axiomatic NAND-clauses are purely binary.
+\end{lemma}
+\begin{proof}
+  The axiomatic NAND-clauses require no proofs, so they are vacuously binary-derivable.
+  Since they are all binary, they are by definition purely binary.
+\end{proof}
+Since these axioms corresponds to \textit{edges} in the graph, we can already conclude that whatever graph relation we are looking for, it needs to hold for adjacent nodes (i.e. nodes with an edge between them).
+\begin{lemma}
+  Given any instance of the $(Rneg)$-rule, the clause in the conclusion is binary-derivable if and only if all the clauses in the premise are purely binary.
+\end{lemma}
+\begin{proof}
+  $(\Rightarrow)$ Given an instance of the $(Rneg)$-rule with the conclusion clause $\ol{A}$, suppose one of the clauses $\ol{B}$ in the premise is \textit{not} purely binary.
+  Then either $\ol{B}$ itself is not binary, or the proof of $\ol{B}$ contains a non-binary clause $\ol{X}$.
+  Since both $\ol{B}$ and $\ol{X}$ are contained in the proof of $\ol{A}$, we get that $\ol{A}$ can not be binary derived.\\
+  $(\Leftarrow)$ Given a similar instance as above with the conclusion clause $\ol{A}$, suppose $\ol{A}$ is not binary-derivable.
+  Then there exists a non-binary clause $\ol{Y}$ in the proof of $\ol{A}$.
+  $\ol{Y}$ is either \textit{in} the premise, or it is in the proof of a clause $\ol{C}$ in the premise.  Either way, there will be a clause in the premise that is not purely binary.
+\end{proof}
+Even though the condition above ensures the binary derivability of the conclusion, it is however not strong enough to guarantee the purely binary property.  The following proof shows this point:
+\[
+\begin{prooftree}
+  \Hypo{\dots}
+  \Infer1{\Gamma \vdash \ol{ab}}
+  \Hypo{\dots}
+  \Infer1{\Gamma \vdash \ol{cd}}
+  \Hypo{\dots}
+  \Infer1{\Gamma \vdash \ol{ef}}
+  \Infer3[$bdf$]{\Gamma \vdash \ol{ace}}
+\end{prooftree}
+\]
+$\ol{ace}$ is obviously not purely binary in the proof above, seeing it consists of 3 atoms.  The assumption that the three clauses $\ol{ab}$, $\ol{cd}$ and $\ol{ef}$ are purely binary does not change this fact.
+
+Since the condition in the preceding lemma coincides with the notion of binary derivability, we can simply add the binary condition to it in order to get a condition for purely binary clauses:
+\begin{corollary}
+  Given any instance of the $(Rneg)$-rule, the clause in the conclusion is purely binary if and only if it is binary and all the clauses in the premise are purely binary.
+\end{corollary}
+
+Using these observations, we can now define our purely binary NAND-clauses inductively:
+\begin{definition}
+  A NAND-clause $\ol{X}$ is purely binary iff:
+  \begin{itemize}
+    \item (Base Case): $\ol{X}$ is an axiom.
+    \item (Inductive Case): $\ol{X}$ is binary and is the conclusion of a rule with only purely binary clauses in the premise.
+  \end{itemize}
+\end{definition}
+
+TODO: Explain binary conclusion in terms of premise.
+
+TODO: Give a corresponding graph structural definition based on the inductive definition of a purely binary clause.
+
+TODO: Give graph examples.
+\pagebreak
