@@ -1,7 +1,7 @@
 \documentclass[10pt, a4paper]{article}   	% use "amsart" instead of "article" for AMSLaTeX format
 
 \usepackage{geometry}
-% \usepackage[parfill]{parskip}    		% Activate to begin paragraphs with an empty line rather than an indent
+%\usepackage[parfill]{parskip}    		% Activate to begin paragraphs with an empty line rather than an indent
 \usepackage{graphicx}				% Use pdf, png, jpg, or eps with pdflatex; use eps in DVI mode
 \usepackage[english]{babel}
 \usepackage[utf8]{inputenc}
@@ -42,6 +42,7 @@
 \newcommand{\p}[2]{P^{#1}_{#2}}
 
 \newcommand{\ax}[1]{\textcolor{red}{#1}}
+\newcommand{\ol}[1]{\overline{#1\vphantom{b}}}
 
 \usetikzlibrary{matrix}
 
@@ -50,6 +51,7 @@
 \date{\today}
 \begin{document}
 	\maketitle
+	\input{vel_proof}
 	\input{theorem}
 	\input{new_stuff}
 	\input{intro}
