@@ -6,8 +6,8 @@ We define the concept of a vel inductively:
   \begin{itemize}
     \item (BC $\rightarrow$) $b \in N(a)$.
     \item (BC $\leftarrow$) $a \in N(b)$.
-    \item (IS $\rightarrow$) ($\exists c \in N(a))[( \forall x \in N(c))(V(x,b) \vee V(x,x) \vee V(x,a))]$\todo{We need at least one of the V(x,b) to exist.}
-      \item (IS $\leftarrow$) ($\exists c \in N(b))[( \forall x \in N(c))(V(x,a) \vee V(x,x) \vee V(x,b))]$
+    \item (IS $\rightarrow$) $\exists c: [V(a,c) \wedge  (\forall x \in N(c):(V(x,a) \vee V(x,x) \vee V(x,b))) \wedge (\exists x \in N(c):V(x,b))]$.
+      \item (IS $\leftarrow$) $\exists c: [V(b,c) \wedge  (\forall x \in N(c):(V(x,a) \vee V(x,x) \vee V(x,b))) \wedge (\exists x \in N(c):V(x,b))]$.
   \end{itemize}
 \end{definition}
 We can illustrate the different cases with the following figures (with dashed lines representing vels):
@@ -32,7 +32,7 @@ We can illustrate the different cases with the following figures (with dashed li
     \node (1) at (6,2) [point,label=above:c] {};
     \node (2) at (7,2) [collection,label=center:N(c)] {};
     \node (3) at (9,2) [point,label=above:b] {};
-    \draw [-latex] (0) to (1);
+    \draw [-, dashed] (0) to (1);
     \draw [-latex] (1) to (2.north west);
     \draw [-latex] (1) to (2.west);
     \draw [-latex] (1) to (2.south west);
@@ -41,11 +41,11 @@ We can illustrate the different cases with the following figures (with dashed li
     \draw [-, dashed] (2.south east) to (3);
 
     \node (label) at (5,0) [label=left:(IS $\leftarrow$)] {};
-    \node (0) at (9,0) [point,label=above:a] {};
+    \node (0) at (9,0) [point,label=above:b] {};
     \node (1) at (8,0) [point,label=above:c] {};
     \node (2) at (7,0) [collection,label=center:N(c)] {};
-    \node (3) at (5,0) [point,label=above:b] {};
-    \draw [-latex] (0) to (1);
+    \node (3) at (5,0) [point,label=above:a] {};
+    \draw [-, dashed] (0) to (1);
     \draw [-latex] (1) to (2.north east);
     \draw [-latex] (1) to (2.east);
     \draw [-latex] (1) to (2.south east);
